@@ -1,0 +1,97 @@
+div.nav_bar {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        background: #FFFFFF;
+        margin-bottom: 10px;
+        padding: 5px;
+        width:100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        /*overflow: hidden; */
+        /*baackground: -webkit-gradient(linear, left top, left 15, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 15px);
+	*/
+}
+/*label.rlio {
+        text-align:right;
+}
+input.text_input {
+        border: 1px solid #006;
+}*/
+/*div.summarize_summary {
+        border: 1px solid #CCC;
+        background: #EFEFEF;
+        padding: 5px;
+        margin-bottom: 10px;
+        overflow: hidden;
+}
+div.user_feeds_list {
+        border: 4px dotted #CCC;
+        background: #EFEFEF;
+        padding: 5px;
+        margin-bottom: 10px;
+        overflow: hidden;
+}
+*/
+#text_input {
+     width:50%;
+     padding:10px;
+     height:42px;
+}
+.focusField{
+        border:solid 2px #73A6FF;
+        background:#EFF5FF;
+        color:#000;
+}
+.idleField{
+     background:#EEE;
+     color: #6F6F6F;
+     border: solid 2px #DFDFDF;
+     font-style: italic;
+}
+div.sublogo {
+    text-align:center;
+    font-style: italic;   
+    margin: 10px;     
+}
+#logo {
+    text-align:left;
+    padding: 10px;
+    width: 40%;
+}
+div.wrapper {
+    min-height:100%;
+    height: auto;
+    height: 100%;
+    margin-bottom: 0 Auto -30px;
+}
+
+body {
+     height: 100%;
+     BACKGROUND-COLOR: #FFFFFF;
+}
+div.footer {
+    text-align: center;
+    border-top: 1px solid #000;
+    height: 30px;
+}
+div.summarize_summary {
+    border: solid 2px #000000;
+    padding: 5px;
+}
+
+#content {
+        width:100% ;
+        margin-top:10%;
+        margin-bottom: 10%;
+        /*margin: 30px auto;*/
+        /* border: 1px solid #D2D2D2;
+         -moz-box-shadow: 0 0 30px #CCC;
+        -webkit-box-shadow: 0 0 30px #CCC;
+        box-shadow: 0 0 30px #CCC; */
+        background: #FFF;
+        /* background: -webkit-gradient(linear, left top, left 15, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 15px);*/
+}
+
+

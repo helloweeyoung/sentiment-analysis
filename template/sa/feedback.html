@@ -1,0 +1,42 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+{% load comments %}
+
+<!-- A context variable called form is created with the necessary hidden
+fields, timestamps and security hashes -->
+<b>{{ sa_comment.title }} </b><br/>
+<i>{{ sa_comment.value }} </i><br/>
+
+{% get_comment_form for sa_comment as form %}
+<table>
+<form action="{% comment_form_target %}" method="POST">
+  <tr>
+    <td>
+      {{ form }}
+    </td>
+    <td>
+    <p><input type="submit" name="post" value="Post" /></p>
+   </td>
+    <td><input type="submit" name="preview" class="submit-post" value="Preview"></td>
+  </tr>
+</form>
+</table>
+<p><i>Thank you for your feedback</i></p>
+
+{% get_comment_count for sa_comment as comment_count %}
+
+<p>This event has <i>{{ comment_count }} </i> comments.</p>
+
+{% get_comment_list for sa_comment as comment_list %}
+{% for comment in comment_list %}
+<p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}<br/>
+Comment: {{ comment.comment }}</p>
+... <br/>
+{% endfor %}
+
+{% endblock %}

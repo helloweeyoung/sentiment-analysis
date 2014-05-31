@@ -1,0 +1,8 @@
+{% load i18n %}
+{% if user.is_authenticated %}
+    Welcome Back! <a href="/accounts/profile/">{{ user.username }}</a> . 
+    <a href="/accounts/logout/" title="Logout">logout</a>
+{% else %}
+    <a href="/accounts/login/" class="rlio" title="Login">Login</a> .
+    <a href="/accounts/register/" class="rlio" title="Register" >Register</a>
+{% endif %}

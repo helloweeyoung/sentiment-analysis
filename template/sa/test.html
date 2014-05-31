@@ -1,0 +1,28 @@
+{% load i18n %}
+<html>
+
+Test!
+{{ test }} <br/><p>
+{{ visibletext.text }}
+
+ <br/><p>
+
+Summary: 
+Total of {{ visibletext.wa.now }} words and {{ visibletext.sentencescount }} sentences
+and {{ visibletext.eventscount }} numbers
+ <br/><p>
+
+{% for sentences in visibletext.sentences %}
+Sentence: {{ sentences  }}<br/>
+{% endfor %}
+
+
+ <br/><p>
+
+{% for event in visibletext.events %}
+Event: {{ event  }}<br/>
+{% endfor %}
+
+
+
+</html>

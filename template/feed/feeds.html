@@ -1,0 +1,45 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.min.js"></script> 
+        <title>RSS Feed - {{ feed.feed.title }}</title>
+        <script type="text/javascript">
+        function Read(id, url) {
+            var data = {};
+            data.url = url;
+            data.title = document.getElementById('titleof' + id).innerHTML;
+            data.summary = document.getElementById('summaryof' + id).innerHTML;
+            data.author = document.getElementById('authorof' + id).innerHTML;
+            $.post("http://analytics.weeyoung.com/accounts/profile/feeds/read/", 
+                data,
+                function(data){
+                }
+            );
+        };
+        </script>
+    </head>
+
+<body>
+RSS Feeds - <a href="{{ feed.feed.link }}">{{ feed.feed.title }}</a> <br/>
+<p>
+
+
+<p>
+{% for url in feed.entries %}
+Title: <div id="titleof{{ forloop.counter }}">{{ url.title }}</div>  
+
+Author: <div id="authorof{{ forloop.counter }}">{{ url.author_detail.name }}</div> 
+Timestamp:   <div id="dopof{{ forloop.counter }}">{{ url.updated_parsed }}</div> 
+Summary:<div id="summaryof{{ forloop.counter }}">{{ url.summary }}</div>
+<a onclick="Read(this.id, this.href);" id="{{ forloop.counter }}" href="{{ url.link }}">Read this</a> <br/>
+<br/>
+{% endfor %}
+
+</p>
+
+</script>
+</body>
+</html>

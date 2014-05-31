@@ -1,0 +1,19 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+Sentiment Analytics <br/>
+
+               <h3><a href="{{ doc.url }}">Document Title: {{ doc.object.name }}</a></h3>
+               <div><p><b>Url</b>: <a href="{{ doc.url }}">{{ doc.url }}</a> <br/>
+                 <b>Author</b>: {{ doc.author }} <br/>
+                 <b>Summary</b>: {{ doc.summary }} <br/>
+                 <b>Timestamp</b>: {{ doc.object.timestamp }} <br/>
+                 <b>Source</b>: {{ doc.source }} <br/>
+                </p>
+               </div>
+
+{% endblock %}
+

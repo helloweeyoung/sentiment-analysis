@@ -1,0 +1,8 @@
+   <a href="/"> Home </a> . 
+   <a href="/sa/analysis">Analyze</a> . 
+{% if user.is_authenticated %}
+    <a href="http://analytics.weeyoung.com/sa/history">History</a> . 
+    <a href="http://analytics.weeyoung.com/accounts/profile/feeds/setting">My Feeds</a> .  
+    <a href="http://analytics.weeyoung.com/accounts/profile/">My Profile</a> .
+{% endif %}
+    <a href="/sa/feedback">Feedback</a> 

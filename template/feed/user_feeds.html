@@ -1,0 +1,25 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+My Present Feeds <br/>
+<p>
+<div class="user_feeds_list">
+{% for document in documents %}
+{{ forloop.counter }}. Name: {{ document.name }} <br/>
+URL: {{ document.url }} <br/> 
+<a id="feeds" href="http://analytics.weeyoung.com/accounts/profile/feeds/{{ document.id }}/">Read feed</a> <br/>
+<br/>
+{% endfor %}
+</div>
+
+<form action="" method="post">
+Insert New Feed:
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+</p>
+{% endblock %}

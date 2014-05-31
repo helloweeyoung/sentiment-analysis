@@ -1,0 +1,32 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+Sentiment Analytics <br/>
+The text is: <b>{{ txtfrag.text }}</b> and contains {{ txtfrag.wa.now }} words 
+
+<form action="" method="post">
+Insert Text:
+{{ form.name }}  
+<input type="submit" value="Submit" />
+</form>
+<p><b>Summary</b>:<br/>
+{% for words in txtfrag.wa.words %}
+Word: {{ words.name }}<br/>
+Magnitude {{ words.magnitude }} <br/>
+Type: {{ words.type.name }} of influence ( {{ words.type.magnitude }} ) <br/>
+{% endfor %}
+<p>
+<p><b>Summarize summary</b>:<br/>
+Number of positive words: {{ txtfrag.wa.summary.npw }}<br/>
+Number of negative words: {{ txtfrag.wa.summary.nnw }}<br/>
+Magnitude: {{ txtfrag.wa.summary.magnitude }}<br/>
+
+<img src="../chart/line"/>
+
+{% load chart %}
+{% get_chart txtfrag.wa.summary.magnitude %}
+
+{% endblock %}

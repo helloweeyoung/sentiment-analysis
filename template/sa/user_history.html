@@ -1,0 +1,39 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+Sentiment Analytics <br/>
+
+<div id='tabs'>
+    <ul id='sortable'>
+        <li><a href='#tab1'>Analyzed Text</a></li>
+        <li><a href='#tab2'>Read Rss Feeds</a></li>
+    </ul>
+    <div id='tab1'>
+        <div class='accordion'>
+           {% for words in txtfrag %}
+               <h3><a href='#'>Text Fragment: {{ words.name }}</a></h3>
+               <div><p>Magnitude: {{ words.magnitude }} <br/>
+               Timestamp: {{ words.timestamp }} </p></div>
+           {% endfor %}
+           <b>Charts</b>
+        </div>
+    </div>
+    <div id='tab2'>
+        <div class='accordion'>
+          {% for doc in docs %}
+               <h3><a href='#'>Document Name: {{ doc.object.name }}</a></h3>
+               <div><p>Url: <a href="{{ doc.url }}">{{ doc.url }}</a> <br/>
+               Timestamp: {{ doc.object.timestamp }} </p>
+               <i><a href="document/{{ doc.id }}/">more...</a></i>
+               </div>
+           {% endfor %}
+
+        </div>
+    </div>
+</div>
+</script>
+{% endblock %}
+

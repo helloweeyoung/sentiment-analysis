@@ -1,0 +1,62 @@
+{% extends "base/base_sa.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+<form action="" method="post">
+<center>
+<!--{{ form.name }} -->
+<input type="text" name="name" id="text_input" class="text_input" value="Type something here to analyze..." onkeyup="checkchar(this.value,event);"  />
+<input type="submit" value="Analyze"  /><br/>
+<div class="sublogo">
+analytic . sentiment . event . trends
+</div>
+<label id="lblinputtext" />
+<br/>
+{% if txtfrag.text %} 
+<b>{{ txtfrag.text }}</b> contains  {{ txtfrag.wa.nos }} sentences and {{ txtfrag.wa.now }} words
+{% endif %}
+</center>
+</form>
+
+{% if txtfrag.sentences %}
+<div class="summarize_summary">
+<p><b>Summarize summary</b>:<br/>
+
+{% for sentence in txtfrag.sentences %}
+Sentence: {{ sentence.text }} <br/>
+Number of positive words: {{ sentence.wa.summary.npw }}<br/>
+Number of negative words: {{ sentence.wa.summary.nnw }}<br/>
+Magnitude: {{ sentence.wa.summary.magnitude }}<br/>
+{% if sentence.wa.summary.who %}
+Who? {{ sentence.wa.summary.who }}
+{% endif %}
+<br/>
+{% if sentence.wa.summary.numbers %}
+Numbers?
+{% for number in sentence.wa.summary.numbers %}
+ {{ number }} 
+{% endfor %}
+{% endif %}
+<br/>
+</div>
+<table>
+<tr><td>
+<p><b>Summary</b>:<br/></td></tr>
+<tr>
+{% for words in sentence.wa.words %}
+<td>
+Sentence: {{ sentence.text }}<br/>
+Word: {{ words.name }}<br/>
+Magnitude {{ words.magnitude }} <br/>
+Type: {{ words.type.name }} of influence ( {{ words.type.magnitude }} ) <br/>
+</td>
+{% endfor %}
+{% endfor %}
+</tr>
+
+</table>
+{% endif %}
+{% endblock %}
